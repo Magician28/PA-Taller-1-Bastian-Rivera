@@ -1,0 +1,94 @@
+@startuml
+
+class Main {
+  - scanner : Scanner
+  - peluqueria : Peluqueria
+  - azar : Random
+  + main(args : String[]) : void
+  + registrarPersona() : void
+  + agregarMascota() : void
+  + crearMascota(persona : Persona) : void
+  + pedirPelo() : TipoPelo
+  + consultarClientes() : void
+  + realizarCorte() : void
+  + consultarHistorial() : void
+}
+
+class Peluqueria {
+  - clientes : Persona[]
+  - historial : Atencion[]
+  - cantidadClientes : int
+  - cantidadHistorial : int
+  - siguienteId : int
+  + Peluqueria()
+  + buscarPersona(rut : String) : Persona
+  + nuevoId() : int
+  + cargarClientes() : void
+  + cargarHistorial() : void
+  + guardarArchivos() : void
+}
+
+class Persona {
+  - nombre : String
+  - rut : String
+  - mascotas : Mascota[]
+  - cantidadMascotas : int
+  + Persona(nombre : String, rut : String)
+  + getNombre() : String
+  + getRut() : String
+  + getMascotas() : Mascota[]
+  + agregarMascota(mascota : Mascota) : void
+  + buscarMascota(id : int) : Mascota
+}
+
+class Mascota {
+  - id : int
+  - nombre : String
+  - especie : String
+  - edad : int
+  - pelo : TipoPelo
+  + Mascota(id : int, nombre : String, especie : String, edad : int, pelo : TipoPelo)
+  + getId() : int
+  + getNombre() : String
+  + getEspecie() : String
+  + getEdad() : int
+  + getPelo() : TipoPelo
+  + setPelo(pelo : TipoPelo) : void
+}
+
+class Atencion {
+  - rutDueño : String
+  - idMascota : int
+  - corte : TipoCorte
+  - totalPagado : int
+  - fallo : boolean
+  + Atencion(rutDueno : String, idMascota : int, corte : TipoCorte, totalPagado : int, fallo : boolean)
+}
+
+enum TipoPelo {
+  PELAITO
+  CORTO
+  MEDIO
+  LARGO
+}
+
+enum TipoCorte {
+  CORTO
+  MEDIO
+  LARGO
+  - precio : int
+  + getPrecio() : int
+}
+
+Main --> Peluqueria
+Main --> Persona
+Main --> Mascota
+Main --> Atencion
+
+Peluqueria "1" o-- "0..*" Persona
+Peluqueria "1" o-- "0..*" Atencion
+Persona "1" o-- "0..*" Mascota
+
+Mascota --> TipoPelo
+Atencion --> TipoCorte
+@enduml

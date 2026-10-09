@@ -1,0 +1,15 @@
+"Manolo",229121081,2
+3,"Firulais","Perro",4,"Largo"
+4,"Michi","Gato",3,"Medio"
+"Jose",198765432,3
+7,"Luz","Gato",2,"Corto"
+6,"Toby","Perro",6,"Medio"
+5,"Coco","Conejo",1,"Medio"
+"Camila",17654321K,1
+12,"Nala","Perro",5,"Largo"
+"Valentina",213456789,2
+15,"Simba","Gato",4,"Corto"
+16,"Max","Perro",7,"Largo"
+"Diego",205418763,0
+"tilin",22186887k,1
+17,"furryna","gato",67,"Medio"
